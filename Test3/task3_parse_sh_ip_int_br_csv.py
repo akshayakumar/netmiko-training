@@ -28,7 +28,7 @@ def parse_sh_ip_int_br(log_file_list):
             interface=line[0]
             ip_address=line[1]
             protocol=line[5]
-            ip=re.search(r"\d+.*",line[1]) ## regex to search for ip address in the given string
+            ip=re.search(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",line[1]) ## regex to search for ip address in the given string
             if ip:
                 interface_dict = {"Interface":interface, "IP Address":ip_address, "Protocol Status":protocol}
                 list_of_interface_dict.append(interface_dict)
